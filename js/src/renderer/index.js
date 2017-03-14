@@ -1,4 +1,5 @@
 import Embedded from './Embedded';
+import HorizontalRule from './HorizontalRule';
 import getImageComponent from './Image';
 
 const getBlockRenderFunc = (config, customBlockRenderer, getEditorState) => {
@@ -18,6 +19,11 @@ const getBlockRenderFunc = (config, customBlockRenderer, getEditorState) => {
       } else if (entity && entity.type === 'EMBEDDED_LINK') {
         return {
           component: Embedded,
+          editable: false,
+        };
+      } else if (entity && entity.type === 'HR') {
+        return {
+          component: HorizontalRule,
           editable: false,
         };
       }
